@@ -1,0 +1,168 @@
+<!--
+    HRInterviewPro — Dashboard Page (Standalone)
+    Author: Navneet Kaur | AI Course Project
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — HRInterviewPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><span>HRInterviewPro</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="interview.html" class="nav-link">Practice</a></li>
+                <li><a href="../index.html" class="btn-nav-cta">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+    <section class="dashboard-section">
+        <div class="dashboard-container">
+
+            <!-- Dashboard Header -->
+            <div class="dash-header">
+                <div class="dash-header-left">
+                    <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                    <p>Welcome back, <strong>Navneet</strong>! Here's your progress overview.</p>
+                </div>
+                <div class="dash-header-right">
+                    <a href="interview.html" class="btn btn-primary"><i class="fas fa-play"></i> Start Interview</a>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon blue"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-number">12</span>
+                        <span class="stat-card-label">Total Answers</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon green"><i class="fas fa-star"></i></div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-number">7.5</span>
+                        <span class="stat-card-label">Average Score</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon purple"><i class="fas fa-tags"></i></div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-number">4</span>
+                        <span class="stat-card-label">Categories</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon orange"><i class="fas fa-fire"></i></div>
+                    <div class="stat-card-info">
+                        <span class="stat-card-number">75%</span>
+                        <span class="stat-card-label">Readiness</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Performance -->
+            <div class="dash-section">
+                <h2 class="dash-section-title"><i class="fas fa-chart-pie"></i> Category Performance</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-info"><h3>Behavioral</h3><span class="category-count">5 answers</span></div>
+                        <div class="category-score">
+                            <div class="score-ring" data-score="8">
+                                <svg viewBox="0 0 36 36"><path class="score-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="score-ring-fill" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/></svg>
+                                <span>8.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-info"><h3>Technical</h3><span class="category-count">4 answers</span></div>
+                        <div class="category-score">
+                            <div class="score-ring" data-score="7">
+                                <svg viewBox="0 0 36 36"><path class="score-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="score-ring-fill" stroke-dasharray="70, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/></svg>
+                                <span>7.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-info"><h3>Situational</h3><span class="category-count">2 answers</span></div>
+                        <div class="category-score">
+                            <div class="score-ring" data-score="6.5">
+                                <svg viewBox="0 0 36 36"><path class="score-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="score-ring-fill" stroke-dasharray="65, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/></svg>
+                                <span>6.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample History -->
+            <div class="dash-section">
+                <h2 class="dash-section-title"><i class="fas fa-history"></i> Interview History</h2>
+                <div class="history-list">
+                    <div class="history-card">
+                        <div class="history-card-header">
+                            <div class="history-meta">
+                                <span class="history-category"><i class="fas fa-tag"></i> Behavioral</span>
+                                <span class="history-time"><i class="fas fa-clock"></i> Apr 07, 2026 at 20:30</span>
+                            </div>
+                            <div class="history-score score-badge score-high">8/10</div>
+                        </div>
+                        <div class="history-question">
+                            <strong><i class="fas fa-question-circle"></i> Question:</strong>
+                            <p>Tell me about yourself and your professional background.</p>
+                        </div>
+                        <div class="history-answer">
+                            <strong><i class="fas fa-comment-dots"></i> Your Answer:</strong>
+                            <p>I am a final year computer science student with a passion for AI and web development. I have completed several projects including this interview platform, and I have interned at a tech startup where I worked on building RESTful APIs.</p>
+                        </div>
+                        <div class="history-feedback">
+                            <strong><i class="fas fa-robot"></i> AI Feedback:</strong>
+                            <p>Good answer with reasonable detail! Your response shows thought and preparation. Consider adding a specific metric or outcome to strengthen it. Great job structuring your answer logically!</p>
+                        </div>
+                    </div>
+
+                    <div class="history-card">
+                        <div class="history-card-header">
+                            <div class="history-meta">
+                                <span class="history-category"><i class="fas fa-tag"></i> Technical</span>
+                                <span class="history-time"><i class="fas fa-clock"></i> Apr 07, 2026 at 20:15</span>
+                            </div>
+                            <div class="history-score score-badge score-mid">6/10</div>
+                        </div>
+                        <div class="history-question">
+                            <strong><i class="fas fa-question-circle"></i> Question:</strong>
+                            <p>Explain the difference between a stack and a queue.</p>
+                        </div>
+                        <div class="history-answer">
+                            <strong><i class="fas fa-comment-dots"></i> Your Answer:</strong>
+                            <p>A stack follows LIFO (Last In First Out) principle while a queue follows FIFO (First In First Out). Stack is like a pile of plates.</p>
+                        </div>
+                        <div class="history-feedback">
+                            <strong><i class="fas fa-robot"></i> AI Feedback:</strong>
+                            <p>Decent response length, but consider adding more depth. Use the STAR method to structure your answer. Try adding real-world examples for both data structures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/dashboard.js"></script>
+</body>
+</html>

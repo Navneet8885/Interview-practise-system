@@ -1,0 +1,162 @@
+<!--
+    HRInterviewPro — AI Interview Chat Page (Standalone)
+    Author: Navneet Kaur | AI Course Project
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview — HRInterviewPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><span>HRInterviewPro</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="interview.html" class="nav-link active">Practice</a></li>
+                <li><a href="../index.html" class="btn-nav-cta">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+    <section class="interview-section">
+        <div class="interview-container">
+
+            <!-- Sidebar: Question List -->
+            <aside class="interview-sidebar" id="interview-sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-list"></i> Questions</h3>
+                    <button class="sidebar-close" id="sidebar-close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="sidebar-filter">
+                    <select id="category-filter" onchange="filterQuestions()">
+                        <option value="all">All Categories</option>
+                        <option value="Behavioral">Behavioral</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Situational">Situational</option>
+                        <option value="Leadership">Leadership</option>
+                    </select>
+                </div>
+                <div class="question-list" id="question-list">
+                    <button class="question-item" data-id="1" data-category="Behavioral" onclick="selectQuestion(1, 'Behavioral', 'Tell me about yourself and your professional background.')">
+                        <span class="q-number">1</span>
+                        <div class="q-content"><span class="q-category-tag">Behavioral</span><p>Tell me about yourself and your professional...</p></div>
+                    </button>
+                    <button class="question-item" data-id="2" data-category="Behavioral" onclick="selectQuestion(2, 'Behavioral', 'Describe a challenging situation at work and how you handled it.')">
+                        <span class="q-number">2</span>
+                        <div class="q-content"><span class="q-category-tag">Behavioral</span><p>Describe a challenging situation at work...</p></div>
+                    </button>
+                    <button class="question-item" data-id="3" data-category="Behavioral" onclick="selectQuestion(3, 'Behavioral', 'What is your greatest professional achievement?')">
+                        <span class="q-number">3</span>
+                        <div class="q-content"><span class="q-category-tag">Behavioral</span><p>What is your greatest professional achievement?</p></div>
+                    </button>
+                    <button class="question-item" data-id="4" data-category="Technical" onclick="selectQuestion(4, 'Technical', 'Explain the difference between a stack and a queue.')">
+                        <span class="q-number">4</span>
+                        <div class="q-content"><span class="q-category-tag">Technical</span><p>Explain the difference between a stack and...</p></div>
+                    </button>
+                    <button class="question-item" data-id="5" data-category="Technical" onclick="selectQuestion(5, 'Technical', 'What is the time complexity of binary search and why?')">
+                        <span class="q-number">5</span>
+                        <div class="q-content"><span class="q-category-tag">Technical</span><p>What is the time complexity of binary search...</p></div>
+                    </button>
+                    <button class="question-item" data-id="6" data-category="Technical" onclick="selectQuestion(6, 'Technical', 'Describe the MVC architecture pattern.')">
+                        <span class="q-number">6</span>
+                        <div class="q-content"><span class="q-category-tag">Technical</span><p>Describe the MVC architecture pattern.</p></div>
+                    </button>
+                    <button class="question-item" data-id="7" data-category="Situational" onclick="selectQuestion(7, 'Situational', 'How would you handle a disagreement with your team lead?')">
+                        <span class="q-number">7</span>
+                        <div class="q-content"><span class="q-category-tag">Situational</span><p>How would you handle a disagreement with...</p></div>
+                    </button>
+                    <button class="question-item" data-id="8" data-category="Situational" onclick="selectQuestion(8, 'Situational', 'Describe how you would prioritize multiple urgent deadlines.')">
+                        <span class="q-number">8</span>
+                        <div class="q-content"><span class="q-category-tag">Situational</span><p>Describe how you would prioritize multiple...</p></div>
+                    </button>
+                    <button class="question-item" data-id="9" data-category="Leadership" onclick="selectQuestion(9, 'Leadership', 'How do you motivate a team during a difficult project?')">
+                        <span class="q-number">9</span>
+                        <div class="q-content"><span class="q-category-tag">Leadership</span><p>How do you motivate a team during a difficult...</p></div>
+                    </button>
+                    <button class="question-item" data-id="10" data-category="Leadership" onclick="selectQuestion(10, 'Leadership', 'Tell me about a time you took initiative on a project.')">
+                        <span class="q-number">10</span>
+                        <div class="q-content"><span class="q-category-tag">Leadership</span><p>Tell me about a time you took initiative...</p></div>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <button class="sidebar-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <div class="chat-header-info">
+                        <div class="chat-avatar ai-avatar"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h3>AI Interviewer</h3>
+                            <span class="chat-status"><span class="status-dot"></span> Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <button class="btn-icon" title="Text-to-Speech" onclick="toggleTTS()" id="tts-btn"><i class="fas fa-volume-up"></i></button>
+                        <a href="dashboard.html" class="btn-icon" title="Dashboard"><i class="fas fa-chart-bar"></i></a>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                        <div class="message-bubble">
+                            <p>👋 Hello <strong>Navneet</strong>! I'm your AI interviewer.</p>
+                            <p>Select a question from the sidebar to begin, or I'll pick one for you. You can type your answer or use the microphone for voice input.</p>
+                            <p class="message-hint">💡 Tip: Use the STAR method (Situation, Task, Action, Result) for behavioral questions.</p>
+                        </div>
+                        <span class="message-time">Now</span>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-area">
+                    <div class="chat-input-wrapper">
+                        <div class="input-container">
+                            <textarea id="answer-input" placeholder="Type your answer here..." rows="1" disabled></textarea>
+                            <div class="input-actions">
+                                <button class="btn-icon mic-btn" id="mic-btn" onclick="toggleVoiceInput()" title="Voice Input" disabled><i class="fas fa-microphone"></i></button>
+                                <button class="btn-send" id="send-btn" onclick="submitAnswer()" disabled><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <div class="input-info">
+                            <span id="char-count">0 characters</span>
+                            <span id="voice-status" class="voice-status hidden"><i class="fas fa-circle recording-dot"></i> Listening...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <script>
+        const QUESTIONS_DATA = [
+            {"id":1,"category":"Behavioral","text":"Tell me about yourself and your professional background."},
+            {"id":2,"category":"Behavioral","text":"Describe a challenging situation at work and how you handled it."},
+            {"id":3,"category":"Behavioral","text":"What is your greatest professional achievement?"},
+            {"id":4,"category":"Technical","text":"Explain the difference between a stack and a queue."},
+            {"id":5,"category":"Technical","text":"What is the time complexity of binary search and why?"},
+            {"id":6,"category":"Technical","text":"Describe the MVC architecture pattern."},
+            {"id":7,"category":"Situational","text":"How would you handle a disagreement with your team lead?"},
+            {"id":8,"category":"Situational","text":"Describe how you would prioritize multiple urgent deadlines."},
+            {"id":9,"category":"Leadership","text":"How do you motivate a team during a difficult project?"},
+            {"id":10,"category":"Leadership","text":"Tell me about a time you took initiative on a project."}
+        ];
+    </script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/interview.js"></script>
+</body>
+</html>
